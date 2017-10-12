@@ -2,10 +2,11 @@
   "name": "frusci",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production webpack -p --progress",
     "clean": "rimraf ./dist",
+    "test": "jest",
     "lint": "esw -c .eslintrc src --ext .js,.jsx --ignore-path .eslintignore --color",
     "lint:fix": "npm run lint -- --fix",
     "lint:watch": "npm run lint -- --watch",
@@ -14,9 +15,27 @@
     "version": "npm run build",
     "postversion": "git push && git push --tags"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "redux",
+    "saga",
+    "enzyme",
+    "jest",
+    "test"
+  ],
   "author": "Emerson Laurentino <emersonlaurentino@hotmail.com>",
   "license": "MIT",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/tests/setup.js"
+    ]
+  },
   "dependencies": {
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
@@ -24,7 +43,6 @@
     "react": "^16.0.0",
     "react-css-loaders": "0.0.5",
     "react-dom": "^16.0.0",
-    "react-loaders": "^2.6.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
@@ -48,22 +66,27 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.4.0",
     "eslint-watch": "^3.1.2",
     "extract-text-webpack-plugin": "^3.0.1",
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^2.30.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^21.2.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "npm-run-all": "^4.1.1",
     "postcss-loader": "^2.0.6",
     "react-hot-loader": "^3.0.0-beta.7",
+    "react-test-renderer": "^16.0.0",
     "redux-async-initial-state": "^0.2.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "rimraf": "^2.6.2",

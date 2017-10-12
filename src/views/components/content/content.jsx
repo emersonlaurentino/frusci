@@ -37,24 +37,40 @@ const Content = ({
 );
 
 Content.propTypes = {
-  alignItems: PropTypes.string,
+  alignItems: PropTypes.oneOf([
+    'center',
+    'flex-end',
+    'flex-start',
+    'inherit',
+    'initial',
+    'baseline',
+    'stretch',
+  ]),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   column: PropTypes.bool,
   flex: PropTypes.number,
   full: PropTypes.bool,
-  justifyContent: PropTypes.string,
+  justifyContent: PropTypes.oneOf([
+    'center',
+    'flex-end',
+    'flex-start',
+    'inherit',
+    'initial',
+    'space-around',
+    'space-between',
+  ]),
   loading: PropTypes.bool,
   style: PropTypes.object,
 };
 
 Content.defaultProps = {
-  alignItems: '',
+  alignItems: 'initial',
   className: '',
   column: false,
   flex: null,
   full: false,
-  justifyContent: '',
+  justifyContent: 'initial',
   loading: false,
   marged: true,
   style: {},
